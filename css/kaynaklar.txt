@@ -6,3 +6,6 @@ https://www.youtube.com/watch?v=dTUtsy54eP0
 
 İki Kutu Hikaye
 https://www.youtube.com/watch?v=OaEtW_CSaPk
+
+CSS Ölçü Birimleri
+https://medium.com/baakademi/cssde-%C3%B6l%C3%A7%C3%BC-ve-uzunluk-birimleri-6563c2ee9853

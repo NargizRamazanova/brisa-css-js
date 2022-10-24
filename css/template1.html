@@ -6,9 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        @font-face {
+            font-family: 'Montserrat-Black';
+            src: url('Montserrat-Black.woff') format('woff')
+        }
+
         body {
+            font-family: "Montserrat-Black";
             margin: 0px;
         }
 
@@ -63,9 +71,25 @@
             height: 250px;
         }
 
-        hr{
+        hr {
             width: 400px;
+            height: 4px;
+            background-color: #fff;
+            border-width: 0;
         }
+
+        .products {
+            display: grid;
+            grid-template-columns: 450px 450px 450px;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        @media only screen and (max-width: 1000px){
+            .products{
+                grid-template-columns: 450px 450px;
+            }
+        }
+        
     </style>
 </head>
 
@@ -94,17 +118,38 @@
         <p>Graphic Artist - Web Designer - Illustrator</p>
     </div>
 
-    <p style="font-size: 40px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo sit, beatae consequuntur excepturi incidunt commodi perspiciatis distinctio harum doloremque ducimus, veniam repellendus laudantium eos qui maiores, fuga eligendi repellat molestiae?
-    Quaerat deserunt maiores voluptas laborum illo architecto soluta. Fuga incidunt ea quibusdam? Maiores, praesentium! At quos aliquid animi ad facere vel impedit adipisci, quidem harum repudiandae cupiditate sit natus minima.
-    Alias provident ab nostrum ut recusandae, quae velit necessitatibus? Consectetur ipsum cum repellat facilis? Corporis ipsa officiis molestiae, error sunt, optio odit ipsum vitae iure non ad labore inventore assumenda.
-    Nobis reprehenderit architecto et minima, explicabo fugit provident inventore sed. In aliquam minus sequi voluptas quaerat eligendi explicabo ducimus ipsam sapiente ex? Totam neque est quo eligendi minus debitis ducimus?
-    Provident dolorum, sint a cum odio animi repellat perspiciatis voluptas. Ab id architecto nostrum eaque modi at deleniti sed laborum, earum amet ratione? Iste, ipsam numquam mollitia suscipit aliquam itaque.
-    Quisquam quod praesentium quibusdam? Nemo dicta, sed voluptatem totam, quod sapiente repudiandae consequatur ad magni commodi praesentium quo explicabo molestiae iusto libero dolor iste blanditiis. Nostrum nam assumenda ratione consectetur.
-    Cum tenetur vero error, eligendi esse, voluptatem amet minima commodi facilis, dolore saepe quam qui natus ad unde dolor? Labore temporibus libero perspiciatis vel natus accusamus officia sint incidunt voluptas.
-    Nobis sunt excepturi praesentium quos enim suscipit corrupti ratione at dignissimos debitis accusamus illum fuga, commodi doloremque autem eligendi nemo voluptas in nihil rem sapiente! Et animi cupiditate suscipit nostrum.
-    Reiciendis deleniti inventore, et illum unde expedita dignissimos temporibus sed eos nulla, ullam sapiente quia harum ipsum iste sint. Vitae, nostrum veniam? At a deserunt veritatis ducimus, eveniet in delectus!
-    Distinctio nesciunt nisi explicabo, quod iure eligendi quia ut doloremque, debitis voluptatibus consequatur sunt quo laboriosam aspernatur adipisci dolores veniam dolor aliquid saepe aut reprehenderit ex magni possimus. Perspiciatis, necessitatibus.</p>
+    <section class="products">
+        <div>
+            <img src="https://startbootstrap.github.io/startbootstrap-freelancer/assets/img/portfolio/cabin.png"
+                width="400" height="288" />
+        </div>
 
+        <div>
+            <img src="https://startbootstrap.github.io/startbootstrap-freelancer/assets/img/portfolio/cabin.png"
+                width="400" height="288" />
+        </div>
+
+        <div>
+            <img src="https://startbootstrap.github.io/startbootstrap-freelancer/assets/img/portfolio/cabin.png"
+                width="400" height="288" />
+        </div>
+
+        <div>
+            <img src="https://startbootstrap.github.io/startbootstrap-freelancer/assets/img/portfolio/cabin.png"
+                width="400" height="288" />
+        </div>
+
+        <div>
+            <img src="https://startbootstrap.github.io/startbootstrap-freelancer/assets/img/portfolio/cabin.png"
+                width="400" height="288" />
+        </div>
+        <div>
+            <img src="https://startbootstrap.github.io/startbootstrap-freelancer/assets/img/portfolio/cabin.png"
+                width="400" height="288" />
+        </div>
+
+
+    </section>
 </body>
 
 </html>
