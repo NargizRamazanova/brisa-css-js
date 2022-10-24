@@ -1,0 +1,8 @@
+Css Selectors
+https://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048
+
+BOX MODEL
+https://www.youtube.com/watch?v=dTUtsy54eP0
+
+İki Kutu Hikaye
+https://www.youtube.com/watch?v=OaEtW_CSaPk
