@@ -1,0 +1,20 @@
+
+@mixin flexCenter($direction:'row') {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+
+.leftMenu{
+    @include flexCenter(column);
+    width: 20%;
+    background-color: $siteMainColor;
+    height: 100vh;
+}
+
+#profileLogo{
+    width: 160px;
+    height: 160px;
+}
