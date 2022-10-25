@@ -1,2 +1,5 @@
 Sass
 https://sass-lang.com/guide
+https://gist.github.com/AdamMarsden/7b85e8d5bdb5bef969a0
+https://gist.github.com/jareware/4738651
+https://itnext.io/writing-media-queries-with-sass-mixins-3ea591ea3ea4

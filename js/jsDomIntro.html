@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptate maxime nisi consequuntur
+        architecto error pariatur ipsam obcaecati dignissimos! Aut omnis odit nam nihil molestiae? Est modi neque
+        ratione aperiam!</p>
+
+
+    <button onclick="change()">Change Text</button>
+    <button onclick="changeColor()">Change Color</button>
+    <button onclick="toggle()">Hidden - Show</button>
+
+</body>
+<script>
+
+
+
+
+
+    var contentShow = true;
+
+    function toggle(){
+
+        if(contentShow == true){
+            document.getElementById('title').style.display = 'none';
+            contentShow = false;
+        }
+        else{
+            document.getElementById('title').style.display = '';
+            contentShow = true;
+        }
+    }
+
+    function changeColor() {
+        document.getElementById('title').style.color = 'tomato'
+    }
+
+    function change() {
+        document.getElementById('title').innerHTML = "Brisa";
+    }
+</script>
+
+</html>
