@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 400px;
+            position: fixed;
+            /* height: 150px; */
+        }
+
+        hr {
+            position: fixed;
+            left: 1600px;
+            height: 100vh;
+            background-color: red;
+            color: red;
+            width: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex;flex-direction: column;">
+        <img style="top: 100px" id="at1"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZqIOqZIdfSmWApy-aAkwHLirJo24zjO5vOg&usqp=CAU"
+            alt="" srcset="">
+
+
+        <img style="top: 350px" id="at2"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZqIOqZIdfSmWApy-aAkwHLirJo24zjO5vOg&usqp=CAU"
+            alt="" srcset="">
+
+        <img style="top: 600px" id="at3"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZqIOqZIdfSmWApy-aAkwHLirJo24zjO5vOg&usqp=CAU"
+            alt="" srcset="">
+
+    </div>
+
+    <hr>
+
+    <button onclick="start()">Start</button>
+</body>
+<script>
+
+    function start() {
+
+
+        let at1Left = 0;
+        let at2Left = 0;
+        let at3Left = 0;
+
+
+        let intervalId = setInterval(() => {
+
+            let random1 = Math.floor(Math.random() * 100);
+            let random2 = Math.floor(Math.random() * 100);
+            let random3 = Math.floor(Math.random() * 100);
+
+            at1Left = at1Left + random1;
+            at2Left = at2Left + random2;
+            at3Left = at3Left + random3;
+
+
+
+            document.getElementById('at1').style.left = at1Left + "px";
+            document.getElementById('at2').style.left = at2Left + "px";
+            document.getElementById('at3').style.left = at3Left + "px";
+
+            if (at1Left >= 1300) {
+                alert("At-1 kazandı!");
+                clearInterval(intervalId);
+                comeBack()
+
+            }
+            else if (at2Left >= 1300) {
+                alert("At-2 kazandı!");
+                clearInterval(intervalId);
+                comeBack()
+            }
+            else if (at3Left >= 1300) {
+                alert('At-3 kazandı!');
+                clearInterval(intervalId);
+                comeBack()
+            }
+
+        }, 100);
+
+    }
+
+
+    function comeBack() {
+
+        document.getElementById('at1').style.left = 10 + "px";
+        document.getElementById('at2').style.left = 10 + "px";
+        document.getElementById('at3').style.left = 10 + "px";
+    }
+
+</script>
+
+</html>

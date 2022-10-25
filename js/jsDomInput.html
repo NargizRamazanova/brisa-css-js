@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <input type="text" id="data" />
+    </div>
+    <div>
+        <button onclick="calc()">Calc</button>
+    </div>
+    <div id="box" style="width: 200px; height: 200px; border-style: solid;">
+
+    </div>
+</body>
+
+<script>
+    //Her butona bastığında mevcut divi inputa girdiği değer kadar sağa kaydırsın
+    let boxLeft = 0;
+
+    function calc(){
+
+        let x = document.getElementById('data').value;
+
+        boxLeft = boxLeft + Number(x);
+
+        document.getElementById('box').style.marginLeft = boxLeft + "px";
+       
+
+    }
+</script>
+
+</html>
