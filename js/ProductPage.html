@@ -41,6 +41,23 @@
 
 <body>
     <div>
+        <div>
+            <label>Minimum Price</label>
+            <input type="text" id="minPrice" />
+        </div>
+
+        <div>
+            <label>Maximum Price</label>
+            <input type="text" id="maxPrice" />
+        </div>
+
+        <div>
+            <button onclick="filterByPrice()">Filter</button>
+        </div>
+    </div>
+
+    <hr>
+    <div>
         <label>Name: </label>
         <input type="text" id="search" onkeyup="searchByName()" />
     </div>
@@ -50,8 +67,8 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Unit Price</th>
+                <th style="cursor: pointer" onclick="sortByName()">Name</th>
+                <th style="cursor: pointer" onclick="sortByUnitPrice()">Unit Price</th>
                 <th>Stock</th>
             </tr>
         </thead>
@@ -64,18 +81,27 @@
 
     const tbodyElement = document.getElementById('products');
     const searchInput = document.getElementById('search');
+    const minPriceInput = document.getElementById('minPrice');
+    const maxPriceInput = document.getElementById('maxPrice');
 
     let originalProducts = [];
+    let filteredProducts = []
 
     axios.get('https://northwind.vercel.app/api/products')
         .then(response => {
             //Bu kod bloğunda servisten çektiğim datayı globaldeki originalProducts isimli array e atıyorum.
             originalProducts = response.data;
+            filteredProducts = response.data;
             fillTable(response.data);
         })
 
 
     function fillTable(data) {
+
+        const formatter = new Intl.NumberFormat('tr-TR', {
+            style: 'currency',
+            currency: 'TRY',
+        });
 
         tbodyElement.innerHTML = "";
 
@@ -90,7 +116,7 @@
             tdName.innerHTML = element.name;
 
             let tdPrice = document.createElement('td');
-            tdPrice.innerHTML = element.unitPrice;
+            tdPrice.innerHTML = formatter.format(element.unitPrice);
 
             let tdStock = document.createElement('td');
             tdStock.innerHTML = element.unitsInStock;
@@ -100,7 +126,7 @@
             trElement.appendChild(tdPrice);
             trElement.appendChild(tdStock);
 
-            if(element.unitsInStock == 0){
+            if (element.unitsInStock == 0) {
                 trElement.style.backgroundColor = 'tomato'
             }
 
@@ -111,15 +137,60 @@
 
     }
 
+    function searchByName() {
 
-    function searchByName(){
-
-       let searchName = searchInput.value.toLowerCase();
-       let filteredProducts = originalProducts.filter(item => item.name.toLowerCase().includes(searchName));
-       fillTable(filteredProducts);
+        let searchName = searchInput.value.toLowerCase();
+        let filteredProducts = originalProducts.filter(item => item.name.toLowerCase().includes(searchName));
+        fillTable(filteredProducts);
 
     }
 
+
+    const filterByPrice = () => {
+
+        let max = Number(maxPriceInput.value);
+        let min = Number(minPriceInput.value);
+
+        filteredProducts = originalProducts.filter(item => item.unitPrice <= max && item.unitPrice >= min);
+
+        let sortByPrice = filteredProducts.sort((a, b) => a.unitPrice - b.unitPrice)
+
+        fillTable(sortByPrice);
+
+    }
+
+
+    let isSorted = false;
+    const sortByUnitPrice = () => {
+
+        if (!isSorted) {
+            let sortedProducts = filteredProducts.sort((a, b) => a.unitPrice - b.unitPrice);
+            fillTable(sortedProducts);
+            isSorted = true;
+        }
+        else {
+            let sortedProducts = filteredProducts.sort((b, a) => a.unitPrice - b.unitPrice);
+            fillTable(sortedProducts);
+            isSorted = false;
+        }
+
+    }
+
+    let isNameSorted = false;
+    const sortByName = () => {
+
+        if (!isNameSorted) {
+            let sortedProducts = filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+            fillTable(sortedProducts);
+            isNameSorted = true;
+        }
+        else {
+            let sortedProducts = filteredProducts.sort((b, a) => a.name.localeCompare(b.name))
+            fillTable(sortedProducts);
+            isNameSorted = false;
+        }
+
+    }
 
 </script>
 
