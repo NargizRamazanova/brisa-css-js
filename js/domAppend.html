@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <label>Name: </label>
+        <input type="text" id="name" />
+    </div>
+    <div>
+        <button onclick="addName()">Add</button>
+    </div>
+    <ul id="names">
+        
+    </ul>
+
+</body>
+<script>
+
+    function addName(){
+
+        let name = document.getElementById('name').value;
+
+        let liElement = document.createElement('li');
+        liElement.innerHTML = name;
+
+        document.getElementById('names').appendChild(liElement);
+        document.getElementById('name').value = "";
+    }
+
+</script>
+</html>
