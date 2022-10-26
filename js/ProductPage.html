@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label>Name: </label>
+        <input type="text" id="search" onkeyup="searchByName()" />
+    </div>
+
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Unit Price</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody id="products">
+
+        </tbody>
+    </table>
+</body>
+<script>
+
+    const tbodyElement = document.getElementById('products');
+    const searchInput = document.getElementById('search');
+
+    let originalProducts = [];
+
+    axios.get('https://northwind.vercel.app/api/products')
+        .then(response => {
+            //Bu kod bloğunda servisten çektiğim datayı globaldeki originalProducts isimli array e atıyorum.
+            originalProducts = response.data;
+            fillTable(response.data);
+        })
+
+
+    function fillTable(data) {
+
+        tbodyElement.innerHTML = "";
+
+        data.forEach(element => {
+
+            let trElement = document.createElement('tr');
+
+            let tdId = document.createElement('td');
+            tdId.innerHTML = element.id;
+
+            let tdName = document.createElement('td');
+            tdName.innerHTML = element.name;
+
+            let tdPrice = document.createElement('td');
+            tdPrice.innerHTML = element.unitPrice;
+
+            let tdStock = document.createElement('td');
+            tdStock.innerHTML = element.unitsInStock;
+
+            trElement.appendChild(tdId);
+            trElement.appendChild(tdName);
+            trElement.appendChild(tdPrice);
+            trElement.appendChild(tdStock);
+
+            if(element.unitsInStock == 0){
+                trElement.style.backgroundColor = 'tomato'
+            }
+
+            tbodyElement.appendChild(trElement);
+
+
+        });
+
+    }
+
+
+    function searchByName(){
+
+       let searchName = searchInput.value.toLowerCase();
+       let filteredProducts = originalProducts.filter(item => item.name.toLowerCase().includes(searchName));
+       fillTable(filteredProducts);
+
+    }
+
+
+</script>
+
+</html>
